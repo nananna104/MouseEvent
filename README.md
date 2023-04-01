@@ -2,17 +2,17 @@
 
 ## 참고
 
-[Coding/javascript/effect at main · Parkhyeonshin/Coding](https://github.com/Parkhyeonshin/Coding/tree/main/javascript/effect)
+* [Coding/javascript/effect at main · Parkhyeonshin/Coding](https://github.com/Parkhyeonshin/Coding/tree/main/javascript/effect)
 
-[마우스 이펙트 02](https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect01.html)
+* [마우스 이펙트 02](https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect01.html)
 
-[dothome1/effect at master · heemwon/dothome1](https://github.com/heemwon/dothome1/tree/master/effect)
+* [dothome1/effect at master · heemwon/dothome1](https://github.com/heemwon/dothome1/tree/master/effect)
 
-[웹스토리보이](https://heemwon.github.io/dothome1/effect/mouseEffect.html)
+* [웹스토리보이](https://heemwon.github.io/dothome1/effect/mouseEffect.html)
 
-[[자바스크립트 응용]마우스 효과01](https://sshin4882.tistory.com/99)
+* [[자바스크립트 응용]마우스 효과01](https://sshin4882.tistory.com/99)
 
-[[JavaScript] 마우스를 따라다니는 원 만들기](https://stickode.tistory.com/318)
+* [[JavaScript] 마우스를 따라다니는 원 만들기](https://stickode.tistory.com/318)
 
 ## **user-select**
 
