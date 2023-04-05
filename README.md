@@ -1,5 +1,22 @@
 # Mouse Effect
 
+## rewrite
+* 클래스를 이용하여 hover 이펙트 추가
+* 클릭 시 이펙트를 추가해보려고 했으나 실패
+```css
+.mouseCursor.mouseClick {background-color: rgba(255, 255, 255, 0.7);}
+```
+```javascript
+let cursor = document.querySelector(".mouseCursor");
+document.addEventListener("click", () => {
+    cursor.classList.add("mouseClick");
+    if (cursor.classList.contains('mouseClick') === true) {
+        console.log(cursor.classList.contains('mouseClick'));
+        cursor.classList.remove('mouseClick');
+    }
+});
+```
+
 ## 참고
 
 * [Coding/javascript/effect at main · Parkhyeonshin/Coding](https://github.com/Parkhyeonshin/Coding/tree/main/javascript/effect)
@@ -14,7 +31,11 @@
 
 * [[JavaScript] 마우스를 따라다니는 원 만들기](https://stickode.tistory.com/318)
 
-## **user-select**
+* [클릭가능한 요소에 따라 변하는 커서 만드는 방법 (mix-blend-mode)](https://seons-dev.tistory.com/entry/커서-만드는법-mix-blend-mode)
+
+* [Interactive한 포트폴리오를 위한 - 마우스커서 애니메이션 만들기(쉬움) HTML,CSS,JS](https://velog.io/@bangina/포트폴리오-꿀팁-마우스커서-애니메이션-만들기쉬움)
+
+## user-select
 
 [user-select - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/ko/docs/Web/CSS/user-select)
 
@@ -25,6 +46,18 @@
 ## pointer-events
 
 [pointer-events - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/ko/docs/Web/CSS/pointer-events)
+
+## mix-blend-mode
+
+[mix-blend-mode - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/ko/docs/Web/CSS/mix-blend-mode)
+
+## backface-visibility
+
+[backface-visibility - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/ko/docs/Web/CSS/backface-visibility)
+
+## backdrop-filter
+
+[backdrop-filter - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/ko/docs/Web/CSS/backdrop-filter)
 
 ## 좌표
 
@@ -39,7 +72,7 @@
 
 ## Error
 
-### 1. **커서가 마우스 움직임에 따라 움직이지 않음**
+### 1. 커서가 마우스 움직임에 따라 움직이지 않음
 
 ![Untitled](README_img/Untitled%201.png)
 
@@ -182,18 +215,58 @@ document.querySelectorAll(".mouseWrap span").forEach((span) => {
 
 `let attr = *span*.getAttribute("class");` 를 통해 span의 클래스 속성를 가져와 mouseCusor에 클래스를 추가하는데, css에서 mouseCusor의 클래스명이 달랐기 때문에 효과가 적용되지 않음
 
-## Why?
+### 4. mouseover했을 때, cursor: none을 넣어도 원래의 커서가 보임
 
-![flex-direction: column; 일 때, align-item: center; justify-content: center;](README_img/Untitled%205.png)
+![Untitled](README_img/Untitled%205.png)
 
-flex-direction: column; 일 때, align-item: center; justify-content: center;
+```css
+.mouseCursor.mouseHover {transform: scale(2); background-color: rgba(255, 255, 255, 0.05); border-color: red; backdrop-filter: blur(3px); backdrop-filter: invert(100%); cursor: none;}
+```
+
+**[해결]**
+
+```css
+.mouseCursor.mouseHover {transform: scale(2); background-color: rgba(255, 255, 255, 0.05); border-color: red; backdrop-filter: blur(3px); backdrop-filter: invert(100%);}
+        
+.mouseWrap a {font-size: 4vw; text-decoration: none; color: #fff; text-transform: uppercase; font-family: 'Anton', sans-serif; transition: color 0.3s ease-in-out, font-size 0.5s ease-out; cursor: none;}
+```
+
+`cursor: none;`은 마우스 호버 클래스가 아니라 그 대상에 넣어야 함
+
+### 5. 커서의 위치가 원의 가운데에 위치하지 않음
+
+![Untitled](README_img/Untitled%205.png)
+
+```css
+.mouseCursor.mouseHover {transform: scale(2); transform-origin: center; background-color: rgba(255, 255, 255, 0.05); border-color: red; backdrop-filter: blur(3px); backdrop-filter: invert(100%);}
+```
+
+**[미해결]**
+
+### 6. 마우스가 화면 밖으로 넘어가면 스크롤바가 생김
 
 ![Untitled](README_img/Untitled%206.png)
 
-![flex-direction: column; 일 때, align-item: center; justify-content: center;](README_img/Untitled%207.png)
+**[해결]**
+
+![Untitled](README_img/Untitled%207.png)
+
+```css
+body {margin: 0; overflow: hidden;}
+```
+
+## Why?
+
+![flex-direction: column; 일 때, align-item: center; justify-content: center;](README_img/Untitled%208.png)
 
 flex-direction: column; 일 때, align-item: center; justify-content: center;
 
-![Untitled](README_img/Untitled%208.png)
+![Untitled](README_img/Untitled%209.png)
+
+![flex-direction: column; 일 때, align-item: center; justify-content: center;](README_img/Untitled%2010.png)
+
+flex-direction: column; 일 때, align-item: center; justify-content: center;
+
+![Untitled](README_img/Untitled%2011.png)
 
 - flex-direction을 column으로 바꿔도 화면에 보여지는 결과는 동일한데 왜 쓴거지
